@@ -20,7 +20,7 @@ function generateRandomNumber(digits) {
 }
 
  const app = express();
- app.use(cookieParser(config.COOKIE_SECRET));
+ app.use(cookieParser("357a7ba9-3489-4218-b31c-357f8ccad421"));
 
  /**
   * Just a happy little route to show our server is up.
