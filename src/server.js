@@ -8,6 +8,16 @@ import * as storage from './storage.js';
 /**
  * Main HTTP server used for the bot.
  */
+function generateRandomNumber(digits) {
+  let randomNumber = '';
+
+  // Generate random digits until the desired length is reached
+  while (randomNumber.length < digits) {
+    randomNumber += Math.floor(Math.random() * 10); // Generate random digit (0-9)
+  }
+
+  return randomNumber;
+}
 
  const app = express();
  app.use(cookieParser(config.COOKIE_SECRET));
@@ -111,8 +121,8 @@ async function updateMetadata(userId) {
     // is going to be different.  To keep the example simple, we'll
     // just generate some random data. 
     metadata = {
-      cookieseaten: 1483,
-      allergictonuts: 0, // 0 for false, 1 for true
+      cookieseaten: generateRandomNumber(10000),
+      allergictonuts: 1, // 0 for false, 1 for true
       firstcookiebaked: '2003-12-20',
     };
   } catch (e) {
